@@ -30,8 +30,8 @@ class PyCclib(PythonPackage):
     computational chemistry packages"""
 
     homepage = "https://cclib.github.io/"
-    url      = "https://github.com/cclib/cclib/releases/download/v1.5/cclib-1.5.tar.gz"
 
-    version('1.5', 'c06940101c4796bce82036b13fecb73c')
+    version('1.5.post1', '1a50be48e4597b1a6dabe943da82a43c',
+            url="https://github.com/cclib/cclib/releases/download/v1.5/cclib-1.5.post1.tar.gz")
 
     depends_on('py-numpy@1.5:', type=('build', 'run'))

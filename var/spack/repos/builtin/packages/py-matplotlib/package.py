@@ -96,7 +96,10 @@ class PyMatplotlib(PythonPackage):
     depends_on('py-six@1.9.0:', type=('build', 'run'))
 
     @PythonPackage.sanity_check('install')
-    def set_backend(self, spec, prefix):
+    def set_backend(self):
+        spec = self.spec
+        prefix = self.prefix
+
         if '+qt' in spec or '+tk' in spec:
             # Set backend in matplotlib configuration file
             config_file = None

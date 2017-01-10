@@ -25,7 +25,7 @@
 from spack import *
 
 
-class PyScikitLearn(Package):
+class PyScikitLearn(PythonPackage):
     """A set of python modules for machine learning and data mining."""
     homepage = "https://pypi.python.org/pypi/scikit-learn"
     url      = "https://pypi.python.org/packages/source/s/scikit-learn/scikit-learn-0.15.2.tar.gz"

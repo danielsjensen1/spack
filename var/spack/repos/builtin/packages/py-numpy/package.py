@@ -64,7 +64,8 @@ class PyNumpy(PythonPackage):
                 self.spec.version, python_version, arch),
             'numpy/core/include')
 
-    def patch(self, spec, prefix):
+    def patch(self):
+        spec = self.spec
         # for build notes see http://www.scipy.org/scipylib/building/linux.html
         lapackblas = LibraryList('')
         if '+lapack' in spec:

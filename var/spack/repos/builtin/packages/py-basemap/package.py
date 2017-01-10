@@ -45,7 +45,8 @@ class PyBasemap(PythonPackage):
         spack_env.set('GEOS_DIR', self.spec['geos'].prefix)
 
     @PythonPackage.sanity_check('install')
-    def post_install_patch(self, spec, prefix):
+    def post_install_patch(self):
+        spec = self.spec
         # We are not sure if this fix is needed before Python 3.5.2.
         # If it is needed, this test should be changed.
         # See: https://github.com/LLNL/spack/pull/1964
