@@ -71,6 +71,12 @@ class PyMeep(PythonPackage):
         include_flags = '-I{0}'.format(','.join(include_dirs))
         library_flags = '-L{0}'.format(','.join(library_dirs))
 
+        # FIXME: For some reason, this stopped working.
+        # The -I and -L are no longer being properly forwarded to setup.py:
+        # meep_common.i:87: Error: Unable to find 'meep/mympi.hpp'
+        # meep_common.i:88: Error: Unable to find 'meep/vec.hpp'
+        # meep_common.i:89: Error: Unable to find 'meep.hpp'
+
         return [include_flags, library_flags]
 
     def clean_args(self, spec, prefix):

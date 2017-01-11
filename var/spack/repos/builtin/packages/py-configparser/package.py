@@ -39,6 +39,6 @@ class PyConfigparser(PythonPackage):
 
     # This dependency breaks concretization
     # See https://github.com/LLNL/spack/issues/2793
-    # depends_on('py-ordereddict', when='^python@2.6:2.6.999', type=('build', 'run'))
+    # depends_on('py-ordereddict', when='^python@2.6:2.6.999', type=('build', 'run'))  # noqa
 
     depends_on('py-setuptools', type='build')

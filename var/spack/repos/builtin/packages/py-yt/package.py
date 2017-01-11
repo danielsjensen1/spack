@@ -66,8 +66,8 @@ class PyYt(PythonPackage):
     depends_on("python @2.7:2.999,3.4:")
 
     @PythonPackage.sanity_check('install')
-    def check_install(self, spec, prefix):
+    def check_install(self):
         # The Python interpreter path can be too long for this
         # yt = Executable(join_path(prefix.bin, "yt"))
         # yt("--help")
-        python(join_path(prefix.bin, "yt"), "--help")
+        python(join_path(self.prefix.bin, "yt"), "--help")

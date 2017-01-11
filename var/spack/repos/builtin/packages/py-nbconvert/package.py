@@ -47,3 +47,9 @@ class PyNbconvert(PythonPackage):
     depends_on('py-entrypoints', type=('build', 'run'))
     depends_on('py-tornado', type=('build', 'run'))
     depends_on('py-jupyter-client', type=('build', 'run'))
+
+    # FIXME:
+    # Failed, try again after installing PycURL with `pip install pycurl` to avoid outdated SSL.  # noqa
+    # Failed to download css from https://cdn.jupyter.org/notebook/4.1.0/style/style.min.css: [Errno socket error] [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:661)  # noqa
+    # Downloading CSS: https://cdn.jupyter.org/notebook/4.1.0/style/style.min.css  # noqa
+    # error: Need Notebook CSS to proceed: nbconvert/resources/style.min.css
