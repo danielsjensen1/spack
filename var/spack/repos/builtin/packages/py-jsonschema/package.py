@@ -35,4 +35,7 @@ class PyJsonschema(PythonPackage):
 
     depends_on('py-setuptools', type='build')
     depends_on('py-vcversioner', type=('build', 'run'))
-    depends_on('py-functools32', when="^python@2.7", type=('build', 'run'))
+
+    # This dependency breaks concretization
+    # See https://github.com/LLNL/spack/issues/2793
+    # depends_on('py-functools32', when="^python@2.7", type=('build', 'run'))

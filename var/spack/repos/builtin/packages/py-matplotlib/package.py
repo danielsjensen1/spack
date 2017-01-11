@@ -80,7 +80,7 @@ class PyMatplotlib(PythonPackage):
 
     # --------- Optional dependencies
     depends_on('pkg-config', type='build')    # why not...
-    depends_on('py-pillow', when='+image', type=('build', 'run'))
+    depends_on('pil', when='+image', type=('build', 'run'))
     depends_on('py-ipython', when='+ipython')
     depends_on('ghostscript', when='+latex', type='run')
     depends_on('texlive', when='+latex', type='run')

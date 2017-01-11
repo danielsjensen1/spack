@@ -36,6 +36,7 @@ class PyShiboken(PythonPackage):
     depends_on('cmake', type='build')
 
     depends_on("py-setuptools", type='build')
+    depends_on("py-sphinx", type=('build', 'run'))
     depends_on("libxml2")
     depends_on("qt@:4.8")
 

@@ -35,4 +35,5 @@ class PyUnittest2py3k(PythonPackage):
 
     version('0.5.1', '8824ff92044310d9365f90d892bf0f09')
 
+    depends_on('python@3.0:3.2')
     depends_on('py-setuptools', type='build')

@@ -33,5 +33,3 @@ class PyOrdereddict(PythonPackage):
     url      = "https://pypi.python.org/packages/source/o/ordereddict/ordereddict-1.1.tar.gz"
 
     version('1.1', 'a0ed854ee442051b249bfad0f638bbec')
-
-    depends_on('python@2.4:2.6.999')

@@ -33,5 +33,5 @@ class PyRestview(PythonPackage):
 
     version('2.6.1', 'ac8b70e15b8f1732d1733d674813666b')
 
-    depends_on('py-docutils', type=('build', 'run'))
+    depends_on('py-docutils@0.13.1:', type=('build', 'run'))
     depends_on('py-pygments', type=('build', 'run'))
