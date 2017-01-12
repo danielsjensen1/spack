@@ -42,6 +42,9 @@ class PyIpython(Package):
     depends_on('py-pathlib2', when="^python@:3.3.999")
     depends_on('py-pickleshare')
     depends_on('py-simplegeneric')
+    depends_on('py-traitlets')
+    depends_on('py-pexpect')
+    depends_on('py-prompt-toolkit')
 
     def install(self, spec, prefix):
         setup_py('install', '--prefix=%s' % prefix)

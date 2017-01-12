@@ -41,7 +41,8 @@ class Texlive(Package):
     # digest values, but don't be surprised if this package is
     # briefly unbuildable.
     #
-    version('live', '01461ec2cc49fe0b14812eb67abbea46',
+#    version('live', '01461ec2cc49fe0b14812eb67abbea46',
+    version('live', 'a9f60720ed4cc519bfb95c44abe74ae4',
             url="http://ctan.math.utah.edu/ctan/tex-archive/systems/texlive/tlnet/install-tl-unx.tar.gz")
 
     # There does not seem to be a complete list of schemes.
