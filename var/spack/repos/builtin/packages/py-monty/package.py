@@ -12,6 +12,7 @@ class PyMonty(PythonPackage):
     homepage = "https://github.com/materialsvirtuallab/monty"
     url      = "https://pypi.io/packages/source/m/monty/monty-0.9.6.tar.gz"
 
+    version('2.0.6', 'f2f3f43068a930573090472da572e2928e2d043708f35156d7e6ec92cfccbd0f')
     version('0.9.6', '406ea69fdd112feacfdf208624d56903')
 
     depends_on('py-setuptools', type='build')
