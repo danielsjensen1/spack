@@ -13,8 +13,8 @@ class PyPhonopy(PythonPackage):
     #url      = "http://sourceforge.net/projects/phonopy/files/phonopy/phonopy-1.10/phonopy-1.10.0.tar.gz"
     url      = "https://pypi.io/packages/source/p/phonopy/phonopy-2.3.2.tar.gz"
 
-    version('2.3.2', 'd25458f9a0a244599ffd3385e17fb4341bc173131f21b6a57f0536969b376673')
-    #version('1.10.0', '973ed1bcea46e21b9bf747aab9061ff6')
+    version('2.3.2', sha256='d25458f9a0a244599ffd3385e17fb4341bc173131f21b6a57f0536969b376673')
+    version('1.10.0', sha256='6b7c540bbbb033203c45b8472696db02a3a55913a0e5eb23de4dc9a3bee473f7')
 
     depends_on('py-numpy', type=('build', 'run'))
     depends_on('py-scipy', type=('build', 'run'))

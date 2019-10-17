@@ -16,8 +16,8 @@ class PyAbipy(PythonPackage):
 
     version('develop', branch='develop')
     version('master', branch='master')
-    version('0.6.0', 'b7010753d0dab6f047c25294486f94342dece3c199282ab509c7ab90d629abe6')
-    version('0.2.0', 'af9bc5cf7d5ca1a56ff73e2a65c5bcbd')
+    version('0.6.0', sha256='b7010753d0dab6f047c25294486f94342dece3c199282ab509c7ab90d629abe6')
+    version('0.2.0', sha256='c72b796ba0f9ea4299eac3085bede092d2652e9e5e8074d3badd19ef7b600792')
 
     variant('gui',     default=False, description='Build the GUI')
     variant('ipython', default=False, description='Build IPython support')

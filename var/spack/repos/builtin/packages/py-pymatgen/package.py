@@ -15,10 +15,10 @@ class PyPymatgen(PythonPackage):
     homepage = "http://www.pymatgen.org/"
     url      = "https://pypi.io/packages/source/p/pymatgen/pymatgen-4.7.2.tar.gz"
 
-    version('2019.9.16', 'f994ec313b63607c8e596a3e683acdc4d0d708fc410a8b934154cb00e2485cb1')
-    version('2019.6.20', '5612c2117c5ab751c6783a057ee53b40f52e90d379c2558f20f04f09dd9a72bc')
-    version('4.7.2', '9c3a6e8608671c216e4ef89778646fd6')
-    version('4.6.2', '508f77fdc3e783587348e93e4dfed1b8')
+    version('2019.9.16', sha256='f994ec313b63607c8e596a3e683acdc4d0d708fc410a8b934154cb00e2485cb1')
+    version('2019.6.20', sha256='5612c2117c5ab751c6783a057ee53b40f52e90d379c2558f20f04f09dd9a72bc')
+    version('4.7.2', sha256='e439b78cc3833a03963c3c3efe349d8a0e52a1550c8a05c56a89aa1b86657436')
+    version('4.6.2', sha256='f34349090c6f604f7d402cb09cd486830b38523639d7160d7fd282d504036a0e')
 
     extends('python', ignore='bin/tabulate')
 
