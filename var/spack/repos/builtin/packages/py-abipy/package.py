@@ -45,6 +45,7 @@ class PyAbipy(PythonPackage):
     depends_on('py-netcdf4',             type=('build', 'run'))
     depends_on('py-matplotlib@1.5:',     type=('build', 'run'))
     depends_on('py-seaborn',             type=('build', 'run'))
+    depends_on('py-sympy',               type=('build', 'run'))
 
     depends_on('py-wxpython', type=('build', 'run'), when='+gui')
     depends_on('py-wxmplot',  type=('build', 'run'), when='+gui')
