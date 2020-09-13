@@ -20,7 +20,6 @@ class PyFireworks(PythonPackage):
     depends_on('py-jinja2@2.10.3:', type='run')
     depends_on('py-six@1.13.0:',  type=('build', 'run'))
     depends_on('py-monty@3.0.2:', type=('run'))
-    depends_on('py-monty@3.0.2:', type=('run'))
     depends_on('py-python-dateutil@2.8.1:', type=('build', 'run'))
     depends_on('py-tabulate', type=('build', 'run'))
     depends_on('py-flask@1.1.1:', type=('build', 'run'))
