@@ -102,8 +102,14 @@ def dev_build(self, args):
     # TODO: possibly allow the user to forcefully overwrite an existing 
     # directory
     if os.path.isdir(stage_path):
-        raise RuntimeError('the stage-path directory %s already exists' 
-                           % stage_path)
+#         raise RuntimeError('the stage-path directory %s already exists' 
+#                            % stage_path)
+        # It is actually useful to be able to rerun `dev-build` even if the
+        # directory already exists.  For example, you've made changes, built
+        # the code, and now want to install it.  Raising an error would be
+        # annoying because you would have to wipe the build directory and 
+        # rebuild everything.
+        pass
     else:
         shutil.move(tmpdir, stage_path)
     
