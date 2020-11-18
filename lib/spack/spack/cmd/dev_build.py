@@ -6,6 +6,7 @@
 import os
 import shutil
 import sys
+import tempfile
 
 import llnl.util.filesystem as fs
 import llnl.util.tty as tty
@@ -25,10 +26,6 @@ def setup_parser(subparser):
     subparser.add_argument(
         '-d', '--source-path', dest='source_path', default=None,
         help="path to source directory. defaults to the current directory")
-    subparser.add_argument(
-        '-p', '--copy-source', dest='copy_src', default=True,
-        help="copy the source files to the staging directory instead of moving "
-        "them")
     subparser.add_argument(
         '-s', '--stage-path', dest='stage_path', default=None,
         help="path to stage directory. defaults to a subdirectory of the "
@@ -82,9 +79,6 @@ def dev_build(self, args):
     if not spack.repo.path.exists(spec.name):
         tty.die("No package for '{0}' was found.".format(spec.name),
                 "  Use `spack create` to create a new package")
-    print('spec.versions.concrete=', spec.versions.concrete)
-    print('spec.name=', spec.name)
-    print('spec=', spec)
     if not spec.versions.concrete:
         tty.die(
             "spack dev-build spec must have a single, concrete version. "
@@ -95,28 +89,26 @@ def dev_build(self, args):
         source_path = os.getcwd()
     source_path = os.path.abspath(source_path)
     
+    # Create a temporary staging directory in case the staging directory is a 
+    # subdirectory of the source directory.
+    tmpdir = tempfile.mkdtemp()
+    spack_src = os.path.join(tmpdir, 'spack-src')
+    fs.copy_tree(source_path, spack_src)
+    
     stage_path = args.stage_path
     if stage_path is None:
-        stage_path = os.getcwd()
-        print('stage_path=', stage_path)
-        if stage_path == source_path:
-            stage_path = os.path.split(stage_path)[0]
-        stage_path = os.path.join(stage_path, str(spec))
-    if not os.path.isdir(stage_path):
-        fs.mkdirp(stage_path)
-    
-    
-    copy_src = args.copy_src
-    spack_src = os.path.join(stage_path, 'spack-src')
-    print('alive1')
-    if copy_src:
-        fs.copy_tree(source_path, spack_src)
+        stage_name = dirname = 'spack-stage-%s' % spec.dag_hash(7)
+        stage_path = os.path.join(os.getcwd(), stage_name)
+    # TODO: possibly allow the user to forcefully overwrite an existing 
+    # directory
+    if os.path.isdir(stage_path):
+        raise RuntimeError('the stage-path directory %s already exists' 
+                           % stage_path)
     else:
-        shutil.move(source_path, spack_src)
-    print('alive2')
-    # Forces the build to run out of the build directory.
+        shutil.move(tmpdir, stage_path)
+    
+    # Forces the build to run out of the staging directory.
     spec.constrain('dev_path=%s' % stage_path)
-#     spec.constrain('src_path=%s' % source_path)
 
     spec.concretize()
     package = spack.repo.get(spec)
