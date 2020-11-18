@@ -950,7 +950,8 @@ class PackageBase(with_metaclass(PackageMeta, PackageViewMixin, object)):
         # If it's a dev package (not transitively), use a DIY stage object
         dev_path_var = self.spec.variants.get('dev_path', None)
         if dev_path_var:
-            return spack.stage.DIYStage(dev_path_var.value)
+            spack_src = os.path.join(dev_path_var.value, 'spack-src')
+            return spack.stage.DIYStage(dev_path_var.value, spack_src)
 
         # Construct a composite stage on top of the composite FetchStrategy
         composite_fetcher = self.fetcher

@@ -744,7 +744,7 @@ class DIYStage(object):
     """DIY staging is, by definition, not managed by Spack."""
     managed_by_spack = False
 
-    def __init__(self, path):
+    def __init__(self, path, source_path=None):
         if path is None:
             raise ValueError("Cannot construct DIYStage without a path.")
         elif not os.path.isdir(path):
@@ -753,7 +753,9 @@ class DIYStage(object):
 
         self.archive_file = None
         self.path = path
-        self.source_path = path
+        self.source_path = source_path
+        if source_path is None:
+            self.source_path = path
         self.created = True
 
     # DIY stages do nothing as context managers.
